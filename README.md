@@ -1,5 +1,7 @@
 # DelayedLauncher
 
+![Icon](https://www.taoeffect.com/blog/wp-content/uploads/2011/01/DelayedLauncher-e1295998988169.png)
+
 Speed up your Mac's login time by delaying the launch of OS X login items. Makes fine-tuned, stacked delays possible.
 
 ## Initial Open Source notes
