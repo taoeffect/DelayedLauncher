@@ -14,7 +14,7 @@ To whomever picks it up, I have the following suggestions:
 
 - Clean up my ugly & rushed code.
 - Use [TECommon](https://github.com/taoeffect/TECommon) instead of `Common.h`.
-- Use [TERecord](https://github.com/taoeffect/TERecord) instead of `NSMutableDictionary`s.
+- Use [TERecord](https://github.com/taoeffect/TERecord) instead of `NSMutableDictionaries`.
 - Switch to ARC and Objective-C 2+.
 - Give it a nice website.
 - Talk to me if you have any questions. I'm [easy to get in touch with](http://dns.dnschain.net/id/greg).
