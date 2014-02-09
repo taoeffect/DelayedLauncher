@@ -15,6 +15,7 @@ I've decided to open source it because I don't have the time to maintain it.
 To whomever picks it up, I have the following suggestions:
 
 - Clean up my ugly & rushed code.
+- Fix ['Hide' not working on newer systems](https://www.taoeffect.com/blog/2011/01/delayedlauncher-2-2/#comment-5272).
 - Use [TECommon](https://github.com/taoeffect/TECommon) instead of `Common.h`.
 - Use [TERecord](https://github.com/taoeffect/TERecord) instead of `NSMutableDictionaries`.
 - Switch to ARC and Objective-C 2+.
