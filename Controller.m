@@ -365,11 +365,11 @@ extern char **environ;
 - (IBAction)fire:(id)sender
 {
 	[self updateDelayTextField];
-	if ( [[NSApp currentEvent] type] == NSLeftMouseDown ) {
+	if ( [[NSApp currentEvent] type] == NSEventTypeLeftMouseDown ) {
 		[delayTextField setHidden:NO];
 		if ( countingDown )
 			[self setValue:NSNO forKey:@"countingDown"];
-	} else if ( [[NSApp currentEvent] type] == NSLeftMouseUp ) {
+	} else if ( [[NSApp currentEvent] type] == NSEventTypeLeftMouseUp ) {
 		[delayTextField setHidden:YES];
 		[self saveToDisk];
 	}
