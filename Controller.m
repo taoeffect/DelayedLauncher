@@ -162,11 +162,10 @@ extern char **environ;
 	if ( firstRun )
 	{
 		log_debug("first launch detected");
-		
-		NSRunAlertPanel(@"Welcome to DelayedLauncher!",
-						@"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs."
-						@"\n\nFor best results, add DelayedLauncher to your list of login items.",
-						@"OK", nil, nil);
+		NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"Welcome to DelayedLauncher!";
+        alert.informativeText = @"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs.\n\nFor best results, add DelayedLauncher to your list of login items.";
+        [alert runModal];
 		
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:OpenedBeforeKey];
 		[window makeKeyAndOrderFront:self];
