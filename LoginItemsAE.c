@@ -94,7 +94,7 @@ static OSStatus LaunchSystemEvents(ProcessSerialNumber *psnPtr)
     // Launch it!
     
     if (err == noErr) {
-        if ( &LSOpenApplication != NULL ) {
+        if ( LSOpenApplication != NULL ) {
             LSApplicationParameters     appParams;
             
             // Do it the easy way on 10.4 and later.
