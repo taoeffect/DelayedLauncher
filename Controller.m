@@ -162,10 +162,11 @@ extern char **environ;
 	if ( firstRun )
 	{
 		log_debug("first launch detected");
+		
 		NSAlert *alert = [[NSAlert alloc] init];
-        alert.messageText = @"Welcome to DelayedLauncher!";
-        alert.informativeText = @"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs.\n\nFor best results, add DelayedLauncher to your list of login items.";
-        [alert runModal];
+		[alert setMessageText:@"Welcome to DelayedLauncher!"];
+		[alert setInformativeText:@"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs.\n\nFor best results, add DelayedLauncher to your list of login items."];
+		[alert runModal];
 		
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:OpenedBeforeKey];
 		[window makeKeyAndOrderFront:self];
@@ -197,11 +198,12 @@ extern char **environ;
 				
 				if ( !inLoginItems )
 				{
-					int c = NSRunAlertPanel(@"Add DelayedLauncher to Login Items?",
-											@"For best results, DelayedLauncher can add itself to the list of login items so that it automatically runs whenever you login to your account."
-											@"\n\nAdd DelayedLauncher to the login items? You can always remove it later.",
-											@"Yes", @"No", nil);
-					if ( c == NSAlertDefaultReturn )
+					NSAlert *alert = [[NSAlert alloc] init];
+					[alert setMessageText:@"Do you want to add DelayedLauncher to Login Items?"];
+					[alert setInformativeText:@"For best results, DelayedLauncher can add itself to the list of login items so that it automatically runs whenever you login to your account.\n\nAdd DelayedLauncher to the login items? You can always remove it later."];
+					[alert addButtonWithTitle:@"Yes"];
+					[alert addButtonWithTitle:@"No"];
+					if ( [alert runModal] == NSAlertFirstButtonReturn )
 					{
 						log_info("added self to login items");
 						LIAEAddURLAtEnd((CFURLRef)[NSURL fileURLWithPath:ourPath], NO);
