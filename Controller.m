@@ -164,8 +164,9 @@ extern char **environ;
 		log_debug("first launch detected");
 		
 		NSAlert *alert = [[NSAlert alloc] init];
-		[alert setMessageText:@"Welcome to DelayedLauncher!"];
-		[alert setInformativeText:@"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs.\n\nFor best results, add DelayedLauncher to your list of login items."];
+		alert.messageText = @"Welcome to DelayedLauncher!";
+		alert.informativeText = @"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs.\n\nFor best results, add DelayedLauncher to your list of login items.";
+		[alert addButtonWithTitle:@"OK"];
 		[alert runModal];
 		
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:OpenedBeforeKey];
@@ -199,8 +200,8 @@ extern char **environ;
 				if ( !inLoginItems )
 				{
 					NSAlert *alert = [[NSAlert alloc] init];
-					[alert setMessageText:@"Do you want to add DelayedLauncher to Login Items?"];
-					[alert setInformativeText:@"For best results, DelayedLauncher can add itself to the list of login items so that it automatically runs whenever you login to your account.\n\nAdd DelayedLauncher to the login items? You can always remove it later."];
+					alert.messageText = @"Do you want to add DelayedLauncher to Login Items?";
+					alert.informativeText = @"For best results, DelayedLauncher can add itself to the list of login items so that it automatically runs whenever you login to your account.\n\nAdd DelayedLauncher to the login items? You can always remove it later.";
 					[alert addButtonWithTitle:@"Yes"];
 					[alert addButtonWithTitle:@"No"];
 					if ( [alert runModal] == NSAlertFirstButtonReturn )
@@ -460,7 +461,11 @@ int decimalPlace(double x, int place) {
 {
 	ENUMERATE(NSMutableDictionary *, dict, [itemList objectEnumerator]) {
 		if ( [[dict objectForKey:FilePathKey] isEqualToString:path] ) {
-			NSRunAlertPanel(@"Duplicate", @"'%@' is already in the list.", @"OK", nil, nil, [path lastPathComponent]);
+			NSAlert *alert = [[NSAlert alloc] init];
+			alert.messageText = @"Duplicate";
+			alert.informativeText = [NSString stringWithFormat:@"'%@' is already in the list.", [path lastPathComponent]];
+			[alert addButtonWithTitle:@"OK"];
+			[alert runModal];
 			return NO;
 		}
 	};
