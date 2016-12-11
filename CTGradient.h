@@ -11,28 +11,28 @@
 #import <Cocoa/Cocoa.h>
 
 typedef struct _CTGradientElement 
-{
-	float red, green, blue, alpha;
-	float position;
+	{
+	CGFloat red, green, blue, alpha;
+	CGFloat position;
 	
 	struct _CTGradientElement *nextElement;
-} CTGradientElement;
+	} CTGradientElement;
 
 typedef enum  _CTBlendingMode
-{
+	{
 	CTLinearBlendingMode,
 	CTChromaticBlendingMode,
 	CTInverseChromaticBlendingMode
-} CTGradientBlendingMode;
+	} CTGradientBlendingMode;
 
 
 @interface CTGradient : NSObject <NSCopying, NSCoding>
-{
+	{
 	CTGradientElement* elementList;
 	CTGradientBlendingMode blendingMode;
 	
 	CGFunctionRef gradientFunction;
-}
+	}
 
 + (id)gradientWithBeginningColor:(NSColor *)begin endingColor:(NSColor *)end;
 
@@ -64,9 +64,9 @@ typedef enum  _CTBlendingMode
 
 - (void)drawSwatchInRect:(NSRect)rect;
 - (void)fillRect:(NSRect)rect angle:(float)angle;					//fills rect with axial gradient
-//	angle in degrees
+																	//	angle in degrees
 - (void)radialFillRect:(NSRect)rect;								//fills rect with radial gradient
-//  gradient from center outwards
+																	//  gradient from center outwards
 - (void)fillBezierPath:(NSBezierPath *)path angle:(float)angle;
 - (void)radialFillBezierPath:(NSBezierPath *)path;
 

@@ -12,7 +12,7 @@
 				please do not use, install, modify or redistribute this Apple software.
 
 				In consideration of your agreement to abide by the following terms, and subject
-				to these terms, Apple grants you a personal, non-exclusive license, under Appleâ€™s
+				to these terms, Apple grants you a personal, non-exclusive license, under AppleÕs
 				copyrights in this original Apple software (the "Apple Software"), to use,
 				reproduce, modify and redistribute the Apple Software, with or without
 				modifications, in source and/or binary forms; provided that if you redistribute
@@ -125,7 +125,7 @@ static OSStatus LaunchSystemEvents(ProcessSerialNumber *psnPtr)
                 lpb.launchBlockID      = extendedBlock;
                 lpb.launchEPBLength    = extendedBlockLen;
                 lpb.launchControlFlags = launchContinue | launchNoFileFlags;
-                lpb.launchAppSpec      = &appSpec;
+                //lpb.launchAppSpec      = &appSpec;
                 
                 err = LaunchApplication(&lpb);
             }
@@ -143,7 +143,7 @@ static OSStatus FindSystemEvents(ProcessSerialNumber *psnPtr)
 	// running, launches it.
 {
 	OSStatus		err;
-	Boolean			found = 0;
+	Boolean			found;
 	ProcessInfoRec	info;
 	
 	assert(psnPtr != NULL);
@@ -232,7 +232,7 @@ static OSStatus SendAppleEvent(const AEDesc *event, AEDesc *reply)
 		err = AEGetParamPtr(
 			reply, 
 			keyErrorNumber, 
-			typeShortInteger, 
+			typeSInt16, 
 			&junkType,
 			&replyErr, 
 			sizeof(replyErr), 
@@ -342,7 +342,7 @@ static OSStatus CreateCFArrayFromAEDescList(
 			// Get this element's AERecord.
 			
 			err = AEGetNthDesc(descList, itemIndex, typeAERecord, &junkKeyword, &thisItem);
-			
+
 			// Extract the path and create a CFURL.
 
 			if (err == noErr) {
@@ -489,14 +489,12 @@ static OSStatus SendEventToSystemEventsWithParameters(
 	AppleEvent			target;
 	AppleEvent			event;
 	AppleEvent			localReply;
-	AEDescList			results;
 
 	assert( (reply == NULL) || (reply->descriptorType == typeNull) );
 		
 	target = kAENull;
 	event = kAENull;
 	localReply = kAENull;
-    results = kAENull;
 	
 	// Create Apple event.
 	
@@ -637,7 +635,7 @@ extern OSStatus LIAECopyLoginItems(CFArrayRef *itemsPtr)
 	if (err == noErr) {
 		err = CreateCFArrayFromAEDescList(&results, itemsPtr);
 	}
-	
+
 	// Clean up.
 	
 	AEDisposeDescQ(&reply);
@@ -808,7 +806,7 @@ extern OSStatus LIAERemove(CFIndex itemIndex)
 	// Build object specifier for "login item X".
 
 	itemIndexPlusOne = itemIndex + 1;	// AppleScript is one-based, CF is zero-based
-	err = AECreateDesc(typeLongInteger, &itemIndexPlusOne, sizeof(itemIndexPlusOne), &indexDesc);
+	err = AECreateDesc(typeSInt32, &itemIndexPlusOne, sizeof(itemIndexPlusOne), &indexDesc);
 	if (err == noErr) {
 		err = CreateObjSpecifier(cLoginItem, (AEDesc *) &kAENull, formAbsolutePosition, &indexDesc, false, &loginItemAtIndex);
 	}

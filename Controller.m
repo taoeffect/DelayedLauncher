@@ -163,10 +163,11 @@ extern char **environ;
 	{
 		log_debug("first launch detected");
 		
-		NSRunAlertPanel(@"Welcome to DelayedLauncher!",
-						@"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs."
-						@"\n\nFor best results, add DelayedLauncher to your list of login items.",
-						@"OK", nil, nil);
+		NSAlert *alert = [[NSAlert alloc] init];
+		alert.messageText = @"Welcome to DelayedLauncher!";
+		alert.informativeText = @"Drag items you want launched onto the table, they will be opened after the specified delays the next time this program runs.\n\nFor best results, add DelayedLauncher to your list of login items.";
+		[alert addButtonWithTitle:@"OK"];
+		[alert runModal];
 		
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:OpenedBeforeKey];
 		[window makeKeyAndOrderFront:self];
@@ -198,11 +199,12 @@ extern char **environ;
 				
 				if ( !inLoginItems )
 				{
-					int c = NSRunAlertPanel(@"Add DelayedLauncher to Login Items?",
-											@"For best results, DelayedLauncher can add itself to the list of login items so that it automatically runs whenever you login to your account."
-											@"\n\nAdd DelayedLauncher to the login items? You can always remove it later.",
-											@"Yes", @"No", nil);
-					if ( c == NSAlertDefaultReturn )
+					NSAlert *alert = [[NSAlert alloc] init];
+					alert.messageText = @"Do you want to add DelayedLauncher to Login Items?";
+					alert.informativeText = @"For best results, DelayedLauncher can add itself to the list of login items so that it automatically runs whenever you login to your account.\n\nAdd DelayedLauncher to the login items? You can always remove it later.";
+					[alert addButtonWithTitle:@"Yes"];
+					[alert addButtonWithTitle:@"No"];
+					if ( [alert runModal] == NSAlertFirstButtonReturn )
 					{
 						log_info("added self to login items");
 						LIAEAddURLAtEnd((CFURLRef)[NSURL fileURLWithPath:ourPath], NO);
@@ -365,11 +367,11 @@ extern char **environ;
 - (IBAction)fire:(id)sender
 {
 	[self updateDelayTextField];
-	if ( [[NSApp currentEvent] type] == NSLeftMouseDown ) {
+	if ( [[NSApp currentEvent] type] == NSEventTypeLeftMouseDown ) {
 		[delayTextField setHidden:NO];
 		if ( countingDown )
 			[self setValue:NSNO forKey:@"countingDown"];
-	} else if ( [[NSApp currentEvent] type] == NSLeftMouseUp ) {
+	} else if ( [[NSApp currentEvent] type] == NSEventTypeLeftMouseUp ) {
 		[delayTextField setHidden:YES];
 		[self saveToDisk];
 	}
@@ -459,7 +461,11 @@ int decimalPlace(double x, int place) {
 {
 	ENUMERATE(NSMutableDictionary *, dict, [itemList objectEnumerator]) {
 		if ( [[dict objectForKey:FilePathKey] isEqualToString:path] ) {
-			NSRunAlertPanel(@"Duplicate", @"'%@' is already in the list.", @"OK", nil, nil, [path lastPathComponent]);
+			NSAlert *alert = [[NSAlert alloc] init];
+			alert.messageText = @"Duplicate";
+			alert.informativeText = [NSString stringWithFormat:@"'%@' is already in the list.", [path lastPathComponent]];
+			[alert addButtonWithTitle:@"OK"];
+			[alert runModal];
 			return NO;
 		}
 	};
