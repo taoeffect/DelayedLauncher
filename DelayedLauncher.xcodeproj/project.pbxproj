@@ -309,7 +309,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = DelayedLauncher;
 				SDKROOT = macosx;
-				WARNING_CFLAGS = "";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
 		};
@@ -333,7 +333,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = DelayedLauncher;
 				SDKROOT = macosx;
-				WARNING_CFLAGS = "";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
 		};
