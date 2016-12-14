@@ -14,6 +14,8 @@
 		18AF7DCF1159563E00A3DB43 /* DragADelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7DCE1159563E00A3DB43 /* DragADelayView.m */; };
 		18AF7DF01159A08900A3DB43 /* GradientBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7DEF1159A08900A3DB43 /* GradientBGView.m */; };
 		18AF7DF31159A0C800A3DB43 /* CTGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7DF21159A0C800A3DB43 /* CTGradient.m */; };
+		18AF7E191159A21300A3DB43 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AF7E181159A21300A3DB43 /* Sparkle.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		18AF7E211159A23900A3DB43 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 18AF7E181159A21300A3DB43 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		18AF7EF2115BFA2A00A3DB43 /* TEIconFromFilepath.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7EF1115BFA2A00A3DB43 /* TEIconFromFilepath.m */; };
 		18AF7F14115C1BF800A3DB43 /* cancel_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF7F13115C1BF800A3DB43 /* cancel_16.png */; };
 		18AF7F1E115C23B100A3DB43 /* ImageAndProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AF7F1D115C23B100A3DB43 /* ImageAndProgressCell.m */; };
@@ -29,6 +31,20 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18AF7E241159A24300A3DB43 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18AF7E211159A23900A3DB43 /* Sparkle.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -46,7 +62,7 @@
 		18AF7DEF1159A08900A3DB43 /* GradientBGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientBGView.m; sourceTree = "<group>"; };
 		18AF7DF11159A0C800A3DB43 /* CTGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTGradient.h; sourceTree = "<group>"; };
 		18AF7DF21159A0C800A3DB43 /* CTGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTGradient.m; sourceTree = "<group>"; };
-		18AF7E181159A21300A3DB43 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../Sparkle/Sparkle.framework"; sourceTree = SOURCE_ROOT; };
+		18AF7E181159A21300A3DB43 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ../Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		18AF7EF0115BFA2A00A3DB43 /* TEIconFromFilepath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEIconFromFilepath.h; sourceTree = "<group>"; };
 		18AF7EF1115BFA2A00A3DB43 /* TEIconFromFilepath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEIconFromFilepath.m; sourceTree = "<group>"; };
 		18AF7F13115C1BF800A3DB43 /* cancel_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_16.png; sourceTree = "<group>"; };
@@ -78,6 +94,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				1845EB920EEA11C600B490F0 /* Carbon.framework in Frameworks */,
+				18AF7E191159A21300A3DB43 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +211,7 @@
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
+				18AF7E241159A24300A3DB43 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 			);
 			buildRules = (
@@ -212,7 +230,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DelayedLauncher" */;
 			compatibilityVersion = "Xcode 8.0";
@@ -293,11 +311,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Sparkle/"",
+					"\"$(SRCROOT)/../Sparkle\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -312,6 +330,8 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-Wl,-rpath,@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taoeffect.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DelayedLauncher;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wall";
@@ -322,12 +342,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Sparkle/"",
+					"\"$(SRCROOT)/../Sparkle\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -339,6 +359,8 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taoeffect.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DelayedLauncher;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wall";
@@ -348,13 +370,28 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx;
 			};
@@ -363,9 +400,23 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
