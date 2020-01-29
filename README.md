@@ -20,7 +20,7 @@ To whomever picks it up, I have the following suggestions:
 - Use [TERecord](https://github.com/taoeffect/TERecord) instead of `NSMutableDictionaries`.
 - Switch to ARC and Objective-C 2+.
 - Give it a nice website.
-- Talk to me if you have any questions. I'm [easy to get in touch with](http://dns.dnschain.net/id/greg).
+- Talk to me if you have any questions. I'm [easy to get in touch with](https://fixingtao.com).
 
 ## License
 
